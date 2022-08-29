@@ -10,3 +10,10 @@ input = sys.stdin.readline
 a = input()
 
 print(len(a.split()))
+
+
+'''
+The Curious Case of Benjamin Button
+----
+6
+'''
