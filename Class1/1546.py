@@ -11,3 +11,12 @@ n = int(input())
 data = (list(map(int, input().split())))
 
 print(sum(data)/max(data)*100/n)
+
+
+
+'''
+3
+40 80 60
+-------
+75.0
+'''
