@@ -1,12 +1,13 @@
 '''
-사이클 게임
-https://www.acmicpc.net/problem/20040
+연결 요소의 개수
+https://www.acmicpc.net/problem/11724
 '''
 
 
 import sys
 
 input = sys.stdin.readline
+
 
 def find_parent(parent, x):
     if parent[x] != x:
@@ -25,20 +26,17 @@ def union_parent(parent, x, y):
 
 N, M = map(int, input().split())
 
-parent = [0] * N
+parent = [0] * (N+1)
 
 for i in range(N):
     parent[i] = i
 
-cycle =False
 for i in range(M):
     x, y = map(int, input().split())
+    union_parent(parent, x, y)
 
-    if find_parent(parent, x) == find_parent(parent, y):
-        cycle = True
-        print(i+1)
-        break
-    else:
-        union_parent(parent, x, y)
-if not cycle:
-    print(0)
+counter = []
+for i in range(1, N+1):
+    counter.append(find_parent(parent, i))
+
+print(len(set(counter)))
